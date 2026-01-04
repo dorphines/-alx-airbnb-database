@@ -1,0 +1,146 @@
+Authentication and Permissions
+ Weight: 1
+ Project will start Nov 17, 2025 12:00 AM, must end by Nov 24, 2025 12:00 AM
+ Manual QA review must be done (request it when you are done with the project)
+Understanding Authentication and Permission in Enterprise Applications
+Authentication and permission systems are the cornerstone of any secure and scalable backend architecture. Whether you’re building a small SaaS platform or a robust enterprise-grade application, implementing robust user access controls ensures the integrity, confidentiality, and availability of your system’s data.
+
+In Django, authentication and authorization (permissions) are elegantly handled through a combination of built-in tools and extendable frameworks. For mid to senior-level backend engineers, mastering these components is essential not only for technical growth but also for building secure, maintainable, and scalable systems that align with industry standards and compliance requirements (e.g., GDPR, HIPAA, SOC 2).
+
+In small-scale apps, authentication may seem straightforward with simple login/signup flows. However, as the application scales, challenges such as multi-role systems, fine-grained permissions, external integrations (OAuth, JWT, SSO), and API security become more critical. Understanding how to implement and customize these systems will empower developers to create backend services that are both user-friendly and enterprise-ready.
+
+Learning Objectives
+By the end of this module, learners will be able to:
+
+Understand Core Concepts
+
+Define authentication and authorization, and understand how Django handles both.
+Differentiate between user roles, groups, and permission sets.
+Implement Authentication
+
+Build custom user models and extend Django’s default User model.
+Implement session-based and token-based (e.g., JWT) authentication.
+Integrate third-party authentication services (e.g., OAuth2, SSO).
+Design Permission Systems
+
+Create custom permissions for models, views, and APIs.
+Use Django’s permissions_required, @login_required, and DRF permissions.
+Implement object-level permissions for more granular control.
+Secure Enterprise APIs
+
+Enforce role-based access control (RBAC) for enterprise applications.
+Combine authentication with throttling and rate limiting for production use.
+Audit and Monitor Access
+
+Set up logging, user activity tracking, and audit trails.
+Understand best practices for secure password storage, account recovery, and session handling.
+Expected Learning Outcomes
+Learners will:
+
+Build robust authentication flows using Django and Django REST Framework.
+Develop scalable permission layers for small to enterprise-grade apps.
+Apply security principles to protect APIs and sensitive endpoints.
+Gain confidence in integrating third-party identity providers (IdPs) and implementing custom permissions.
+Understand how to structure user roles and access hierarchies in complex systems.
+Suggested Tools and Libraries to Master
+Tool/Library	Purpose
+Django Allauth	Streamlined user authentication, including email verification and social auth
+Django REST Framework (DRF)	Token and session authentication for APIs
+SimpleJWT / djangorestframework-simplejwt	Lightweight JWT authentication for DRF
+OAuthLib / django-oauth-toolkit	Secure OAuth2 implementation in Django
+Guardian	Object-level permissions and per-instance access control
+Auth0	Third-party identity and access management integration
+Keycloak	Open-source identity provider for managing enterprise SSO
+Okta	Enterprise IAM provider with SSO, MFA, and directory services
+PyJWT	Lightweight JWT token generation and validation
+Auditlog	Automatic tracking of model changes and user actions for audit trails
+📝 Project Assessment (Hybrid)
+Your project will be evaluated primarily through manual reviews. To ensure you receive your full score, please:
+
+✅ Complete your project on time
+📄 Submit all required files
+🔗 Generate your review link
+👥 Have your peers review your work
+
+An auto-check will also be in place to verify the presence of core files needed for manual review.
+
+⏰ Important Note
+If the deadline passes, you won’t be able to generate your review link—so be sure to submit on time!
+
+We’re here to support your learning journey. Happy coding! ✨
+
+Quiz questions
+Great! You've completed the quiz successfully! Keep going! (Show quiz)
+Tasks
+0. Implement Authentication
+mandatory
+Objective: Add user authentication using JWT (JSON Web Tokens) or Session Authentication.
+
+Instructions:
+
+Install djangorestframework-simplejwt for JWT Authentication.
+
+Configure the authentication settings in the settings.py. More on how to: here
+
+Ensure all users can access their own messages and conversations
+
+Repo:
+
+GitHub repository: alx-backend-python
+Directory: messaging_app
+File: messaging_app/settings.py, messaging_app/chats/auth.py, messaging_app/urls.py, messaging_app/chats/permissions.py
+1. Add Permissions
+mandatory
+Objective: Create custom permission classes to control access.
+
+Instructions:
+
+Create and extend the permissions class IsParticipantOfConversation to:
+
+Allow only authenticated users to access the api
+Allow only participants in a conversation to send, view, update and delete messages
+Apply the custom permissions to your viewsets to enforce access control
+
+Update your settings.py to set default permissions globally
+
+Repo:
+
+GitHub repository: alx-backend-python
+Directory: messaging_app
+File: chats/permissions.py, chats/Views.py, messaging_app/settings.py
+2. Pagination and Filtering
+mandatory
+Objective: implement pagination and filtering for messages
+
+Instructions:
+
+Add pagination listing on the messages such that the api fetches 20 messages per page. Resource: here
+
+Using django-filters , Add filtering class MessageFilter to your views to retrieve conversations with specific users or messages within a time range
+
+Repo:
+
+GitHub repository: alx-backend-python
+Directory: messaging_app
+File: messaging_app/settings.py, chats/views.py, chats/permissions.py, chats/filters.py, chats/pagination.py
+3. Testing the API Endpoints
+mandatory
+Objective: Use postman to test api endpoints
+
+Instructions:
+
+Test creating a conversation, sending messages and fetching conversations
+
+Test authentication (JWT token login) and ensure that unauthorized users cannot access private conversations.
+
+Repo:
+
+GitHub repository: alx-backend-python
+Directory: messaging_app
+File: post_man-Collections
+4. Manual Review
+mandatory
+Repo:
+
+GitHub repository: alx-backend-python
+Directory: messaging_app
